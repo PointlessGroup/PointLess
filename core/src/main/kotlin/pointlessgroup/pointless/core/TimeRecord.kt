@@ -13,7 +13,13 @@ class TimeRecord(val dateTimeProvider: DateTimeProvider) {
     fun registerCount() = value.size
 
     fun getTimeRecord(): Long {
-        return value.get(1) - value.get(0)
+
+        if (value.isEmpty() || value.size < 2) {
+            return 0;
+        } else {
+            return value.get(1) - value.get(0)
+        }
+
     }
 }
 

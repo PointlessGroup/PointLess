@@ -48,5 +48,9 @@ class ManualTimeRecordTest {
         assertEquals(35, timeRecord.getTimeRecord())
     }
 
-    @Test fun ``
+    @Test fun `should return zero when has only one record`() {
+        timeRecord.register()
+
+        assertEquals(0, timeRecord.getTimeRecord())
+    }
 }
