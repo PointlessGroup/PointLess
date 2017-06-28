@@ -1,11 +1,13 @@
 package pointlessgroup.pointless.core
 
+import java.util.*
+
 class TimeRecord(val dateTimeProvider: DateTimeProvider) {
 
     private val value: ArrayList<Long> = ArrayList<Long>()
 
     fun register() {
-        value.add(System.currentTimeMillis())
+        value.add(dateTimeProvider.currentTimeMilis())
     }
 
     fun registerCount() = value.size
@@ -16,5 +18,6 @@ class TimeRecord(val dateTimeProvider: DateTimeProvider) {
 }
 
 interface DateTimeProvider {
-    fun currentTimeMilis();
+    fun currentTimeMilis():Long
+
 }

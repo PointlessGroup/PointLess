@@ -17,9 +17,9 @@ class ManualTimeRecordTest {
     lateinit var timeRecord: TimeRecord
 
     @Before fun initTimeRecord() {
-        Mockito.mock(DateTimeProvider::class.java)
+        val mockDateTime = Mockito.mock(DateTimeProvider::class.java)
 
-        timeRecord = TimeRecord(mock)
+        timeRecord = TimeRecord(mockDateTime);
     }
 
     @Test fun `when user uses the time record the time should be saved`() {
@@ -38,11 +38,14 @@ class ManualTimeRecordTest {
 
 
     @Test fun `when register in and out, should return the difference between then`() {
+        timeRecord.
         timeRecord.register()
         Thread.sleep(10)
         timeRecord.register()
 
+
         assertEquals(10, timeRecord.getTimeRecord())
+
     }
 
 }
