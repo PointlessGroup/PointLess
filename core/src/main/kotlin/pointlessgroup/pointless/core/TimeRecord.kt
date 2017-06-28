@@ -13,11 +13,11 @@ class TimeRecord(val dateTimeProvider: DateTimeProvider) {
     fun registerCount() = value.size
 
     fun getTimeRecord(): Long {
-        return value.get(0)
+        return value.get(1) - value.get(0)
     }
 }
 
 interface DateTimeProvider {
-    fun currentTimeMilis():Long
+    fun currentTimeMilis(): Long
 
 }

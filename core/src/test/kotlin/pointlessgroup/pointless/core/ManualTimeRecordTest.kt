@@ -7,6 +7,7 @@ import org.junit.runners.JUnit4
 import org.junit.Assert.*
 import org.junit.Before
 import org.mockito.Mockito
+import org.mockito.Mockito.`when`
 import java.util.*
 
 // Objetivo, criar código para validar regra do ponto
@@ -15,9 +16,10 @@ import java.util.*
 class ManualTimeRecordTest {
 
     lateinit var timeRecord: TimeRecord
+    lateinit var mockDateTime: DateTimeProvider
 
     @Before fun initTimeRecord() {
-        val mockDateTime = Mockito.mock(DateTimeProvider::class.java)
+        mockDateTime = Mockito.mock(DateTimeProvider::class.java)
 
         timeRecord = TimeRecord(mockDateTime);
     }
@@ -38,14 +40,13 @@ class ManualTimeRecordTest {
 
 
     @Test fun `when register in and out, should return the difference between then`() {
-        timeRecord.
+        `when`(mockDateTime.currentTimeMilis()).thenReturn(10L)
         timeRecord.register()
-        Thread.sleep(10)
+        `when`(mockDateTime.currentTimeMilis()).thenReturn(45L)
         timeRecord.register()
 
-
-        assertEquals(10, timeRecord.getTimeRecord())
-
+        assertEquals(35, timeRecord.getTimeRecord())
     }
 
+    @Test fun ``
 }
