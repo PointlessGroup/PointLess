@@ -6,6 +6,7 @@ import org.junit.runners.JUnit4
 
 import org.junit.Assert.*
 import org.junit.Before
+import java.util.*
 
 // Objetivo, criar código para validar regra do ponto
 // assumindo registro de ponto manual
@@ -28,7 +29,14 @@ class ManualTimeRecordTest {
         assertEquals(5, timeRecord.registerCount())
     }
 
-    @Test fun ``() {
 
+    @Test fun `when calculated should get all record of current date`() {
+        timeRecord.register()
+        timeRecord.register()
+        timeRecord.register()
+        timeRecord.register()
+
+        timeRecord.getTimeRecord(Date())
     }
+
 }
