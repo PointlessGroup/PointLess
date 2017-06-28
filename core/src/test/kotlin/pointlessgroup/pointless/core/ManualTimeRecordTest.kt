@@ -12,15 +12,11 @@ import org.junit.Before
 @RunWith(JUnit4::class)
 class ManualTimeRecordTest {
 
-    lateinit var timeRecord: TimeRecord
+    var timeRecord: TimeRecord = TimeRecord()
 
-    @Before fun initTimeRecord() {
-        timeRecord = TimeRecord()
-    }
-
-    @Test fun `when user uses de time record the time should be saved`() {
+    @Test fun `when user uses the time record the time should be saved`() {
         timeRecord.register()
-        assertNotNull(timeRecord.value)
+        assertTrue(1, timeRecord.register().s)
     }
 
     @Test fun `when `() {
