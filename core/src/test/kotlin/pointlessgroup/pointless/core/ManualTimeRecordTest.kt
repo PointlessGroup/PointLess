@@ -53,4 +53,15 @@ class ManualTimeRecordTest {
 
         assertEquals(0, timeRecord.getTimeRecord())
     }
+
+    @Test fun `when input an hour different of zero should return the expect time `() {
+        `when`(mockDateTime.currentTimeMilis()).thenReturn(5L)
+        timeRecord.register()
+        `when`(mockDateTime.currentTimeMilis()).thenReturn(65L)
+        timeRecord.register()
+        `when`(mockDateTime.currentTimeMilis()).thenReturn(90L)
+        timeRecord.register()
+
+        assertEquals(60, timeRecord.getTimeRecord())
+    }
 }
