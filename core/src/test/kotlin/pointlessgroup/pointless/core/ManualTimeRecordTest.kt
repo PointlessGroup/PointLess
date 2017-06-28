@@ -6,6 +6,7 @@ import org.junit.runners.JUnit4
 
 import org.junit.Assert.*
 import org.junit.Before
+import org.mockito.Mockito
 import java.util.*
 
 // Objetivo, criar código para validar regra do ponto
@@ -16,6 +17,8 @@ class ManualTimeRecordTest {
     lateinit var timeRecord: TimeRecord
 
     @Before fun initTimeRecord() {
+        Mockito.mock(DateTimeProvider::class.java)
+
         timeRecord = TimeRecord(mock)
     }
 
