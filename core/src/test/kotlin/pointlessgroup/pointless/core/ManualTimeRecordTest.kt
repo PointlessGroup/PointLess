@@ -13,7 +13,11 @@ import java.util.*
 @RunWith(JUnit4::class)
 class ManualTimeRecordTest {
 
-    var timeRecord: TimeRecord = TimeRecord()
+    lateinit var timeRecord: TimeRecord
+
+    @Before fun initTimeRecord() {
+        timeRecord = TimeRecord(mock)
+    }
 
     @Test fun `when user uses the time record the time should be saved`() {
         timeRecord.register()
@@ -30,13 +34,12 @@ class ManualTimeRecordTest {
     }
 
 
-    @Test fun `when calculated should get all record of current date`() {
+    @Test fun `when register in and out, should return the difference between then`() {
         timeRecord.register()
         Thread.sleep(10)
         timeRecord.register()
 
-        timeRecord.getTimeRecord()
-        assertEquals()
+        assertEquals(10, timeRecord.getTimeRecord())
     }
 
 }

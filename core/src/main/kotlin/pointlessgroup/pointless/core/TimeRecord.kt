@@ -1,6 +1,6 @@
 package pointlessgroup.pointless.core
 
-class TimeRecord {
+class TimeRecord(val dateTimeProvider: DateTimeProvider) {
 
     private val value: ArrayList<Long> = ArrayList<Long>()
 
@@ -10,9 +10,11 @@ class TimeRecord {
 
     fun registerCount() = value.size
 
-    fun getTimeRecord() : Long {
+    fun getTimeRecord(): Long {
         return value.get(0)
     }
+}
 
-
+interface DateTimeProvider {
+    fun currentTimeMilis();
 }
