@@ -9,4 +9,10 @@ class TimeRecord {
     }
 
     fun registerCount() = value.size
+
+    fun getTimeRecord() : Long {
+        return value.get(0)
+    }
+
+
 }

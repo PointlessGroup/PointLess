@@ -32,11 +32,11 @@ class ManualTimeRecordTest {
 
     @Test fun `when calculated should get all record of current date`() {
         timeRecord.register()
-        timeRecord.register()
-        timeRecord.register()
+        Thread.sleep(10)
         timeRecord.register()
 
-        timeRecord.getTimeRecord(Date())
+        timeRecord.getTimeRecord()
+        assertEquals()
     }
 
 }
