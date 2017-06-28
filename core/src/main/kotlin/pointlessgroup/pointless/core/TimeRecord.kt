@@ -2,16 +2,11 @@ package pointlessgroup.pointless.core
 
 class TimeRecord {
 
-    var value: List<Long> = ArrayList<Long>()
+    private val value: ArrayList<Long> = ArrayList<Long>()
 
     fun register() {
-        value.(System.currentTimeMillis())
-
+        value.add(System.currentTimeMillis())
     }
 
     fun registerCount() = value.size
-
-
-
-
 }

@@ -19,7 +19,16 @@ class ManualTimeRecordTest {
         assertEquals(1, timeRecord.registerCount())
     }
 
-    @Test fun `when `() {
+    @Test fun `when user register time record many times should save all`() {
+        timeRecord.register()
+        timeRecord.register()
+        timeRecord.register()
+        timeRecord.register()
+        timeRecord.register()
+        assertEquals(5, timeRecord.registerCount())
+    }
+
+    @Test fun ``() {
 
     }
 }
