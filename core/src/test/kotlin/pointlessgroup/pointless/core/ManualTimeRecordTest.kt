@@ -16,7 +16,7 @@ class ManualTimeRecordTest {
 
     @Test fun `when user uses the time record the time should be saved`() {
         timeRecord.register()
-        assertTrue(1, timeRecord.register().s)
+        assertEquals(1, timeRecord.registerCount())
     }
 
     @Test fun `when `() {
