@@ -65,7 +65,9 @@ class ManualTimeRecordTest {
         assertEquals(85, timeRecord.getTimeRecord())
     }
 
-    @Test fun `a`() {
-
+    @Test fun `when register might show dialog confirmation`() {
+        `when`(mockDateTime.currentTimeMilis()).thenReturn(5L)
+        timeRecord.register()
+        
     }
 }
