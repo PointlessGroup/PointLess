@@ -13,9 +13,9 @@ Comunicar devices usando bluetooth para encontrar um colega de trabalho que já 
 
 ## Registro automático de ponto
 * Tag NFC
-* Colocar um link na tag do github
+* Colocar um link na tag apontando para o github
 
-# Plataformas
+# Plataformas externas
 * PontoMais
 * Ts
 * Toggle ( double check)
