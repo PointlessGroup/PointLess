@@ -1,7 +1,5 @@
 package pointlessgroup.pointless.core
 
-import java.util.*
-
 class TimeRecord(val dateTimeProvider: DateTimeProvider) {
 
     private var startTime : Long? = null
@@ -20,7 +18,7 @@ class TimeRecord(val dateTimeProvider: DateTimeProvider) {
     }
 
     fun getTotalTime(): Long {
-        return endTime!! - startTime!!
+        return (endTime ?: dateTimeProvider.currentTimeMilis()) - startTime!!
     }
 
 }
@@ -30,4 +28,4 @@ interface DateTimeProvider {
 
 }
 
-class InvalidRegisterException : RuntimeException("Invalid register")
+class InvalidRegisterException : i("Invalid register")
