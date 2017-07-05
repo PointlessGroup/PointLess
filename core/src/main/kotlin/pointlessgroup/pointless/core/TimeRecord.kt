@@ -4,25 +4,23 @@ import java.util.*
 
 class TimeRecord(val dateTimeProvider: DateTimeProvider) {
 
-    private val value: ArrayList<Long> = ArrayList<Long>()
+    private var startTime : Long? = null
+    private var endTime : Long? = null
 
     fun register() {
-        if (value.size > 1)
-            value[1] = dateTimeProvider.currentTimeMilis()
-        else
-            value.add(dateTimeProvider.currentTimeMilis())
+        if (startTime == null){
+            startTime = dateTimeProvider.currentTimeMilis()
+            return
+        }
 
+        if (endTime!= null)
+            throw InvalidRegisterException()
+
+        endTime = dateTimeProvider.currentTimeMilis()
     }
 
-    fun registerCount() = value.size
-
     fun getTotalTime(): Long {
-
-        if (value.isEmpty() || value.size != 2) {
-            return 0
-        } else {
-            return value[1] - value[0]
-        }
+        return endTime!! - startTime!!
     }
 
 }
@@ -31,3 +29,5 @@ interface DateTimeProvider {
     fun currentTimeMilis(): Long
 
 }
+
+class InvalidRegisterException : RuntimeException("Invalid register")

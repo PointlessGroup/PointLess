@@ -24,7 +24,8 @@ class ManualTimeRecordTest {
     }
 
 
-    @Test(expected = InvalidRegisterException::class) fun `when user uses the time record the time should be saved`() {
+    @Test(expected = InvalidRegisterException::class)
+    fun `should throw InvalidRegisterException when tries to register for the third time`() {
         timeRecord.register()
         timeRecord.register()
         timeRecord.register()
@@ -49,8 +50,6 @@ class ManualTimeRecordTest {
     @Test fun `when input an hour different of zero should return the expect time `() {
         `when`(mockDateTime.currentTimeMilis()).thenReturn(5L)
         timeRecord.register()
-        `when`(mockDateTime.currentTimeMilis()).thenReturn(65L)
-        timeRecord.register()
         `when`(mockDateTime.currentTimeMilis()).thenReturn(90L)
         timeRecord.register()
 
@@ -63,5 +62,3 @@ class ManualTimeRecordTest {
 
     }
 }
-
-class InvalidRegisterException(p0: String?) : RuntimeException(p0)
