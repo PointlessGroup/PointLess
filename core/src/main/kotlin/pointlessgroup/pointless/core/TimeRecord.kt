@@ -7,7 +7,10 @@ class TimeRecord(val dateTimeProvider: DateTimeProvider) {
     private val value: ArrayList<Long> = ArrayList<Long>()
 
     fun register() {
-        value.add(dateTimeProvider.currentTimeMilis())
+        if (value.size > 1)
+
+        else
+            value.add(dateTimeProvider.currentTimeMilis())
     }
 
     fun registerCount() = value.size
@@ -15,11 +18,12 @@ class TimeRecord(val dateTimeProvider: DateTimeProvider) {
     fun getTimeRecord(): Long {
 
         if (value.isEmpty() || value.size != 2) {
-            return 0;
+            return 0
         } else {
-            return value.get(1) - value.get(0)
+            return value[1] - value[0]
         }
     }
+
 }
 
 interface DateTimeProvider {
