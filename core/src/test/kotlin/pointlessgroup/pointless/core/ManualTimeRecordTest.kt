@@ -26,16 +26,7 @@ class ManualTimeRecordTest {
 
     @Test fun `when user uses the time record the time should be saved`() {
         timeRecord.register()
-        assertEquals(1, timeRecord.registerCount())
-    }
 
-    @Test fun `when user register time record many times should save all`() {
-        timeRecord.register()
-        timeRecord.register()
-        timeRecord.register()
-        timeRecord.register()
-        timeRecord.register()
-        assertEquals(2, timeRecord.registerCount())
     }
 
 
@@ -68,6 +59,6 @@ class ManualTimeRecordTest {
     @Test fun `when register might show dialog confirmation`() {
         `when`(mockDateTime.currentTimeMilis()).thenReturn(5L)
         timeRecord.register()
-        
+
     }
 }
