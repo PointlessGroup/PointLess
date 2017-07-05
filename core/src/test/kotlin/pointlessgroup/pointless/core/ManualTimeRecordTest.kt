@@ -8,7 +8,6 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
-import java.util.*
 
 // Objetivo, criar código para validar regra do ponto
 // assumindo registro de ponto manual
@@ -24,9 +23,11 @@ class ManualTimeRecordTest {
         timeRecord = TimeRecord(mockDateTime);
     }
 
-    @Test fun `when user uses the time record the time should be saved`() {
-        timeRecord.register()
 
+    @Test(expected = InvalidRegisterException::class) fun `when user uses the time record the time should be saved`() {
+        timeRecord.register()
+        timeRecord.register()
+        timeRecord.register()
     }
 
 
@@ -36,13 +37,13 @@ class ManualTimeRecordTest {
         `when`(mockDateTime.currentTimeMilis()).thenReturn(45L)
         timeRecord.register()
 
-        assertEquals(35, timeRecord.getTimeRecord())
+        assertEquals(35, timeRecord.getTotalTime())
     }
 
     @Test fun `should return zero when has only one record`() {
         timeRecord.register()
 
-        assertEquals(0, timeRecord.getTimeRecord())
+        assertEquals(0, timeRecord.getTotalTime())
     }
 
     @Test fun `when input an hour different of zero should return the expect time `() {
@@ -53,7 +54,7 @@ class ManualTimeRecordTest {
         `when`(mockDateTime.currentTimeMilis()).thenReturn(90L)
         timeRecord.register()
 
-        assertEquals(85, timeRecord.getTimeRecord())
+        assertEquals(85, timeRecord.getTotalTime())
     }
 
     @Test fun `when register might show dialog confirmation`() {
@@ -62,3 +63,5 @@ class ManualTimeRecordTest {
 
     }
 }
+
+class InvalidRegisterException(p0: String?) : RuntimeException(p0)
