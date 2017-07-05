@@ -28,4 +28,4 @@ interface DateTimeProvider {
 
 }
 
-class InvalidRegisterException : i("Invalid register")
+class InvalidRegisterException : IllegalArgumentException("Invalid register")

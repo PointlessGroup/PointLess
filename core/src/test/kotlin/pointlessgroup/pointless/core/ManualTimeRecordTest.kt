@@ -43,8 +43,8 @@ class ManualTimeRecordTest {
 
     @Test fun `should return zero when has only one record`() {
         timeRecord.register()
-
-        assertEquals(0, timeRecord.getTotalTime())
+        `when`(mockDateTime.currentTimeMilis()).thenReturn(45L)
+        assertEquals(, timeRecord.getTotalTime())
     }
 
     @Test fun `when input an hour different of zero should return the expect time `() {
@@ -54,6 +54,10 @@ class ManualTimeRecordTest {
         timeRecord.register()
 
         assertEquals(85, timeRecord.getTotalTime())
+    }
+
+    @Test fun `when `(){
+
     }
 
 }
