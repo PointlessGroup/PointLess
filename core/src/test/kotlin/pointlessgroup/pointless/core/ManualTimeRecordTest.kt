@@ -35,7 +35,7 @@ class ManualTimeRecordTest {
         timeRecord.register()
         timeRecord.register()
         timeRecord.register()
-        assertEquals(5, timeRecord.registerCount())
+        assertEquals(2, timeRecord.registerCount())
     }
 
 
@@ -62,6 +62,10 @@ class ManualTimeRecordTest {
         `when`(mockDateTime.currentTimeMilis()).thenReturn(90L)
         timeRecord.register()
 
-        assertEquals(60, timeRecord.getTimeRecord())
+        assertEquals(85, timeRecord.getTimeRecord())
+    }
+
+    @Test fun `a`() {
+
     }
 }

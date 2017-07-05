@@ -8,9 +8,10 @@ class TimeRecord(val dateTimeProvider: DateTimeProvider) {
 
     fun register() {
         if (value.size > 1)
-
+            value[1] = dateTimeProvider.currentTimeMilis()
         else
             value.add(dateTimeProvider.currentTimeMilis())
+
     }
 
     fun registerCount() = value.size
