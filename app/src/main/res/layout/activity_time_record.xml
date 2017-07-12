@@ -8,10 +8,18 @@
   tools:context="pointlessgroup.pointless.TimeRecordActivity"
   >
 
+  <TextView
+    android:id="@+id/timer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="00:00"
+    />
+
   <Button
+    android:id="@+id/btn_mainactivity_timerecord"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/btn_mainactivity_timerecord"
 
     />
 
