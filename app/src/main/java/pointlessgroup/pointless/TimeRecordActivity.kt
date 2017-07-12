@@ -12,7 +12,11 @@ class TimeRecordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_time_record)
 
         findViewById(R.id.btn_mainactivity_timerecord).setOnClickListener {
-            (findViewById(R.id.timer) as TextView).text = "00:01"
+            val timeElapsed = findViewById(R.id.timer) as TextView
+
+            timeElapsed.text = if "00:01" == timeElapsed.text ?
+
+            timeElapsed.text =
         }
 
     }

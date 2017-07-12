@@ -16,6 +16,13 @@
     android:text="00:00"
     />
 
+  <TextView
+    android:id="@+id/timer_difference"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="07:58"
+    />
+
   <Button
     android:id="@+id/btn_mainactivity_timerecord"
     android:layout_width="wrap_content"
