@@ -2,6 +2,7 @@ package pointlessgroup.pointless
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
+import android.support.test.espresso.assertion.LayoutAssertions.noOverlaps
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
@@ -24,21 +25,29 @@ class TimeRecordActivityTest {
         onView(withId(R.id.btn_mainactivity_timerecord))
                 .perform(click())
 
+        sleep(1.minute())
+
         onView(withText("00:01"))
                 .check(matches(isDisplayed()))
     }
 
     @Test fun whenClickRecordTwice_shouldStopTimer() {
-        onView(withId(R.id.btn_mainactivity_timerecord))
-                .perform(click(), click())
+        val view = onView(withId(R.id.btn_mainactivity_timerecord))
+        view.perform(click())
+
+        sleep(2.minutes())
+
+        view.perform(click())
 
         onView(withText("00:02"))
                 .check(matches(isDisplayed()))
         onView(withText(("07:58")))
                 .check(matches(isDisplayed()))
-
     }
 
-    @Test fun 
+    @Test fun shouldNotOverlapViews() {
+        onView(withId(R.id.container))
+                .check(noOverlaps())
+    }
 
 }
