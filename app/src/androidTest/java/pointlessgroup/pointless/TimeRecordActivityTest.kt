@@ -28,4 +28,16 @@ class TimeRecordActivityTest {
                 .check(matches(isDisplayed()))
     }
 
+    @Test fun whenClickRecordTwice_shouldStopTimer() {
+        onView(withId(R.id.btn_mainactivity_timerecord))
+                .perform(click())
+
+        onView(withId(R.id.btn_mainactivity_timerecord))
+                .perform(click())
+
+        onView(withText("00:01"))
+                .check(matches(isDisplayed()))
+
+    }
+
 }
