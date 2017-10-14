@@ -4,6 +4,7 @@ import com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import com.github.tomakehurst.wiremock.junit.WireMockRule
 import com.google.gson.Gson
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -66,5 +67,30 @@ import retrofit2.converter.gson.GsonConverterFactory
 
         wiremock.verifyRegister()
         assertEquals("1507935177", response.body()!!.timeCard!!.createdAt)
+    }
+
+    @Test fun whenRegister_withError_shouldReturnAnError() {
+        wiremock.stubForError()
+
+        val response = pontoMaisApi.registerTime(
+                "",
+                "",
+                "",
+                RegisterRequest(TimeCard(
+                        600,
+                        true,
+                        "Av. das Nações Unidas, 11541 - Cidade Monções, São Paulo - SP, Brasil",
+                        -23.6015797,
+                        false,
+                        -46.694767,
+                        "Av. das Nações Unidas, 11541 - Cidade Monções, São Paulo - SP, Brasil",
+                        -23.6015797,
+                        -46.694767
+                ))).execute()
+
+        wiremock.verifyRegister()
+        val errorBody = Gson().fromJson(response.errorBody()!!.string(), ErrorResponse::class.java)
+        assertEquals("Faça login para continuar.", errorBody.error)
+        assertTrue(errorBody.redirectToLogin)
     }
 }

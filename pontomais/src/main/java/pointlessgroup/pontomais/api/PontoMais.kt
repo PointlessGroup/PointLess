@@ -43,7 +43,7 @@ data class LoginResponse(
 
 data class ErrorResponse(
         val error: String? = null,
-        val redirectToLogin: Boolean = false,
+        @SerializedName("redirect_to_login") val redirectToLogin: Boolean = false,
         val meta: Meta? = null)
 
 data class Meta(

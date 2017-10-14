@@ -50,12 +50,21 @@ class ApiRobot(private val wiremock: WireMockRule) : TestRule {
         )
     }
 
-    private companion object {
-        const val USER_AGENT = "Mozilla/5.0 (Linux; Android 6.0.1; MotoG3 Build/MOB31K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/51.0.2704.106 Mobile Safari/537.36"
+    fun stubForError() {
+        wiremock.stubFor(any(anyUrl())
+                .willReturn(aResponse()
+                        .withStatus(401)
+                        .withBody(fromResouces("responses/error_without_login.json"))
+                )
+        )
     }
 
     fun verifyAuth() = verify(exactly(1), postRequestedFor(urlEqualTo("/api/auth/sign_in")))
 
     fun verifyRegister() = verify(exactly(1), postRequestedFor(urlEqualTo("/api/time_cards/register")))
+
+    private companion object {
+        const val USER_AGENT = "Mozilla/5.0 (Linux; Android 6.0.1; MotoG3 Build/MOB31K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/51.0.2704.106 Mobile Safari/537.36"
+    }
 
 }
