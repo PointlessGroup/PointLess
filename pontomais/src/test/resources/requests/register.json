@@ -1,0 +1,14 @@
+{
+  "_path": "/meu_ponto/registro_de_ponto",
+  "time_card": {
+    "accuracy": 600,
+    "accuracy_method": true,
+    "address": "Av. das Nações Unidas, 11541 - Cidade Monções, São Paulo - SP, Brasil",
+    "latitude": -23.6015797,
+    "location_edited": false,
+    "longitude": -46.694767,
+    "original_address": "Av. das Nações Unidas, 11541 - Cidade Monções, São Paulo - SP, Brasil",
+    "original_latitude": -23.6015797,
+    "original_longitude": -46.694767
+  }
+}
