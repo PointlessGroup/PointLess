@@ -1,0 +1,26 @@
+apply plugin: 'java-library'
+apply plugin: "kotlin"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "com.github.tomakehurst:wiremock-standalone:2.8.0"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}

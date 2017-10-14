@@ -1,0 +1,15 @@
+{
+  "success": "Login efetuado com sucesso!",
+  "token": "NJOF5OtacUilFHvk_gdNKA",
+  "client_id": "T2J-MmqrRXrhCnPJodm7wQ",
+  "data": {
+    "email": "bruno.silva@concrete.com.br",
+    "sign_in_count": 4,
+    "last_sign_in_ip": "187.124.101.127",
+    "last_sign_in_at": 1506624228
+  },
+  "meta": {
+    "now": 1507935177,
+    "ip": "201.6.143.60"
+  }
+}
