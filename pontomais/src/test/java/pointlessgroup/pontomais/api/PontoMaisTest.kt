@@ -10,8 +10,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 @RunWith(JUnit4::class) class PontoMaisTest {
@@ -22,8 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
     lateinit var pontoMaisApi: PontoMais
 
     @Before fun buildApi() {
-        val retrofit = Retrofit.Builder().baseUrl("http://localhost:8080").addConverterFactory(GsonConverterFactory.create()).build()
-        pontoMaisApi = retrofit.create(PontoMais::class.java)
+        pontoMaisApi = PontoMaisFactory.create("http://localhost:8080")
     }
 
     @Test fun whenSignIn_shouldCallApiCorrectly() {
