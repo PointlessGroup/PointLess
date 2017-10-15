@@ -1,3 +1,9 @@
 <resources>
   <string name="app_name">PointLess</string>
+    <string name="home_menu_reports">Reports</string>
+  <string name="home_menu_dashboard">Dashboard</string>
+  <string name="home_menu_settings">Settings</string>
+    <string name="dashboard_today">Today</string>
+    <string name="dashboard_week">Week</string>
+    <string name="dashboard_month">Month</string>
 </resources>
