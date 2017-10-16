@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object PontoMaisFactory {
 
-    fun create(baseUrl: String): PontoMais {
+    fun create(baseUrl: String="http://api.pontomaisweb.com.br"): PontoMais {
         return Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())

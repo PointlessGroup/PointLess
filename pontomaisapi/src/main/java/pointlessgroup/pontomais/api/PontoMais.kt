@@ -23,6 +23,6 @@ interface PontoMais {
     fun registerTime(
             @Header("uid") email: String,
             @Header("access-token") accessToken: String,
-            @Header("client") userId: String,
+            @Header("client") clientId: String,
             @Body registerRequest: RegisterRequest): Call<RegisterRespoonse>
 }
