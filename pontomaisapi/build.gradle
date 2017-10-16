@@ -3,12 +3,12 @@ apply plugin: "kotlin"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    compile "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    compile "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 
     testImplementation "junit:junit:4.12"
     testImplementation "com.github.tomakehurst:wiremock-standalone:2.8.0"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$versions.kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$versions.kotlin_version"
 }
 
 sourceCompatibility = "1.7"
