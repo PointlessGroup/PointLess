@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:elevation="2dp"
+        tools:cardBackgroundColor="#0099aa"
+        tools:layout_height="100dp"
+        tools:layout_margin="16dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/horizontal_060"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.60" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/vertical_050"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.50" />
+
+            <TextView
+                android:id="@+id/time_total"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/horizontal_060"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2h23min" />
+
+            <TextView
+                android:id="@+id/time_in"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:drawableLeft="@drawable/ic_getin_black_24dp"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_getin_black_24dp"
+                android:gravity="center_vertical|end"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/vertical_050"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="09h30m" />
+
+            <TextView
+                android:id="@+id/time_out"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:drawableLeft="@drawable/ic_getout_black_24dp"
+                android:drawablePadding="8dp"
+                android:drawableStart="@drawable/ic_getout_black_24dp"
+                android:gravity="center_vertical|end"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vertical_050"
+                tools:text="11h53m" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
