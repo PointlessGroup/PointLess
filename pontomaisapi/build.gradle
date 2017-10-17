@@ -5,6 +5,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.squareup.retrofit2:retrofit:$versions.retrofit"
     compile "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+    compile "com.squareup.okhttp3:logging-interceptor:3.6.0"
 
     testImplementation "junit:junit:4.12"
     testImplementation "com.github.tomakehurst:wiremock-standalone:2.8.0"

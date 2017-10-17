@@ -1,5 +1,6 @@
 package pointlessgroup.pontomais.api
 
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Header
@@ -24,5 +25,5 @@ interface PontoMais {
             @Header("uid") email: String,
             @Header("access-token") accessToken: String,
             @Header("client") clientId: String,
-            @Body registerRequest: RegisterRequest): Call<RegisterRespoonse>
+            @Body registerRequest: RegisterRequest): Call<ResponseBody>
 }
