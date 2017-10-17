@@ -42,6 +42,6 @@ class MainActivity : AppCompatActivity() {
                 ))).execute()
 
         val registerRespoonse = response.body()!!
-        Toast.makeText(this, "Funcionou " + registerRespoonse.timeCard!!.createdAt, Toast.LENGTH_LONG).show()
+//        Toast.makeText(this, "Funcionou " + registerRespoonse.timeCard!!.createdAt, Toast.LENGTH_LONG).show()
     }
 }
