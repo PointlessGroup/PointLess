@@ -1,6 +1,6 @@
 
 ext.versions = [
-        plugin_version: '3.0.0-beta7',
+        plugin_version: '3.0.0-rc1',
         kotlin_version: '1.1.51',
         support_library: '26.1.0',
         retrofit: '2.3.0'
