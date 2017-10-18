@@ -1,5 +1,6 @@
 package pointlessgroup.pontomenos
 
+import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -14,20 +15,43 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun register(view: View) {
-        val pontoMais = PontoMaisFactory.create()
-        val response = pontoMais.signIn(LoginRequest(BuildConfig.USER_EMAIL, BuildConfig.USER_PASSWORD))
-                .execute()
-
-        if (!response.isSuccessful) {
-            Toast.makeText(this, "Eita, deu merda.", Toast.LENGTH_SHORT).show()
-            return
-        }
-        val loginResponse = response.body()!!
-
-        registerRequest(pontoMais, loginResponse)
+        RegisterTask(this::showMessage).execute()
     }
 
-    private fun registerRequest(pontoMais: PontoMais, loginResponse: LoginResponse) {
+    fun showMessage(exception: Exception?) {
+        val text = if (exception == null) "Registered with success" else exception.message
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+    }
+}
+
+private open class RegisterTask(val callback: (Exception?) -> Unit) :
+        AsyncTask<Void, Void, Exception?>() {
+
+    val pontoMais = PontoMaisFactory.create()
+
+    override fun doInBackground(vararg params: Void?): Exception? {
+        try {
+            val loginResponse = registerOnApi()
+            val registerRequest = registerRequest(loginResponse)
+            return null
+        } catch (e: Exception) {
+            return e
+        }
+    }
+
+    override fun onPostExecute(result: Exception?) {
+        callback.invoke(result)
+    }
+
+    private fun registerOnApi(): LoginResponse {
+        val response = pontoMais.signIn(LoginRequest(BuildConfig.USER_EMAIL, BuildConfig.USER_PASSWORD))
+                .execute()
+        if (!response.isSuccessful)
+            throw RuntimeException("Failed to execute login " + response.code())
+        return response.body()!!
+    }
+
+    private fun registerRequest(loginResponse: LoginResponse): RegisterResponse {
         val response = pontoMais.registerTime(BuildConfig.USER_EMAIL, loginResponse.token!!, loginResponse.clientId!!,
                 RegisterRequest(TimeCard(
                         600,
@@ -41,7 +65,8 @@ class MainActivity : AppCompatActivity() {
                         -46.694767
                 ))).execute()
 
-        val registerRespoonse = response.body()!!
-//        Toast.makeText(this, "Funcionou " + registerRespoonse.timeCard!!.createdAt, Toast.LENGTH_LONG).show()
+        if (!response.isSuccessful)
+            throw RuntimeException("Failed to register the point " + response.code())
+        return response.body()!!
     }
 }
