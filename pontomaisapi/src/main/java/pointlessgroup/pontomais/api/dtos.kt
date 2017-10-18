@@ -43,7 +43,7 @@ data class TimeCard(
         @Expose @SerializedName("reference_id") val referenceId: Any? = null
 )
 
-data class RegisterRespoonse(
+data class RegisterResponse(
         @SerializedName("untreated_time_card") val timeCard: UntreatedTimeCard? = null)
 
 data class UntreatedTimeCard(
