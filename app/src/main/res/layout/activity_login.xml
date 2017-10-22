@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@+id/vertical_025"
             tools:ignore="HardcodedText" />
 
-        <Button
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -63,7 +63,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@+id/vertical_050"
             tools:text="SignIn with Google" />
-
 
     </android.support.constraint.ConstraintLayout>
 </layout>
