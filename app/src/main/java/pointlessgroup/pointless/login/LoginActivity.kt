@@ -1,4 +1,4 @@
-package pointlessgroup.pointless
+package pointlessgroup.pointless.login
 
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -15,7 +15,9 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import pointlessgroup.pointless.R
 import pointlessgroup.pointless.databinding.ActivityLoginBinding
+import pointlessgroup.pointless.home.HomeActivity
 
 class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
 
@@ -98,11 +100,11 @@ class LoginActivity : AppCompatActivity(), GoogleApiClient.OnConnectionFailedLis
 
     private fun updateUI(user: FirebaseUser?) {
         Log.d(TAG, "updateUI: "+user)
-        if (user == null) {
+        if (user == null)
             return
-        }
         binding.signInButton.visibility = View.GONE
-        startActivity(Intent(this, DashboardActivity::class.java))
+        startActivity(Intent(this, HomeActivity::class.java))
+        finish()
     }
 
     override fun onConnectionFailed(p0: ConnectionResult) {
