@@ -1,7 +1,9 @@
 ext.versions = [
-        plugin_version        : '3.0.0-rc1',
+        plugin_version        : '3.0.0-rc2',
         kotlin_version        : '1.1.51',
         support_library       : '26.1.0',
         retrofit              : '2.3.0',
-        architectureComponents: '1.0.0-alpha9-1'
+        architectureComponents: '1.0.0-alpha9-1',
+        playservices          : '11.4.2',
+        firebase              : '11.4.2'
 ]
