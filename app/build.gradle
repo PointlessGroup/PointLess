@@ -52,6 +52,8 @@ dependencies {
 //    compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile "com.google.android.gms:play-services-auth:${versions.firebase}"
+    compile "com.google.android.gms:play-services-maps:${versions.firebase}"
+    compile "com.google.android.gms:play-services-location:${versions.firebase}"
 
     compile "com.google.firebase:firebase-core:${versions.firebase}"
     compile "com.google.firebase:firebase-database:${versions.firebase}"
