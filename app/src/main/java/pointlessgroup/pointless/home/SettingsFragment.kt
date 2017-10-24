@@ -16,7 +16,7 @@ class SettingsFragment : Fragment() {
     private lateinit var locationApi: LocationApiLifecycleObserver
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.fragment_dashboard, container, false)
+        binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.fragment_settings, container, false)
         return binding.root
     }
 
