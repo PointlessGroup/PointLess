@@ -4,6 +4,6 @@ ext.versions = [
         support_library       : '26.1.0',
         retrofit              : '2.3.0',
         architectureComponents: '1.0.0-alpha9-1',
-        playservices          : '11.4.2',
-        firebase              : '11.4.2'
+        playservices          : '11.6.0',
+        firebase              : '11.6.0'
 ]

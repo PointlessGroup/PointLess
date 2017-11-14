@@ -51,15 +51,14 @@ dependencies {
     // compile "com.android.support:animated-vector-drawable:${versions.support_library}"
 //    compile 'com.squareup.picasso:picasso:2.5.2'
 
-    compile "com.google.android.gms:play-services-auth:${versions.firebase}"
-    compile "com.google.android.gms:play-services-maps:${versions.firebase}"
-    compile "com.google.android.gms:play-services-location:${versions.firebase}"
+    compile "com.google.android.gms:play-services-auth:${versions.playservices}"
+    compile "com.google.android.gms:play-services-maps:${versions.playservices}"
+    compile "com.google.android.gms:play-services-location:${versions.playservices}"
 
     compile "com.google.firebase:firebase-core:${versions.firebase}"
     compile "com.google.firebase:firebase-database:${versions.firebase}"
     compile "com.google.firebase:firebase-crash:${versions.firebase}"
-    compile "com.google.firebase:firebase-auth:${versions.firebase}" +
-            ""
+    compile "com.google.firebase:firebase-auth:${versions.firebase}"
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile "io.reactivex.rxjava2:rxjava:2.1.0"
     compile 'io.reactivex.rxjava2:rxkotlin:2.0.3'

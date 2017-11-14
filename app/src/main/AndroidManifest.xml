@@ -37,7 +37,7 @@
 
         <service android:name=".GeofenceTransitionsIntentService" />
 
-        <receiver android:name=".WifiScanReceiver">
+        <receiver android:name=".wifi.WifiScanReceiver">
             <intent-filter>
                 <action android:name="android.net.wifi.SCAN_RESULTS" />
             </intent-filter>

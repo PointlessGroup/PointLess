@@ -1,4 +1,4 @@
-package pointlessgroup.pointless
+package pointlessgroup.pointless.wifi
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -20,12 +20,12 @@ class WifiScanReceiver : BroadcastReceiver() {
 
         }
 
-        val wifiManager = (context.applicationContext?.getSystemService(Context.WIFI_SERVICE) as WifiManager)
-        val scanResults = wifiManager.scanResults
+        val scanResults = WifiManagerCompat.from(context).scanResults
         Log.d(TAG, "onReceive: scanResults " + scanResults.size)
         scanResults.forEach {
             Log.d(TAG, "onReceive: result - " + it)
         }
+//        Preferences(context).
     }
 
     fun register(context: Context) {
